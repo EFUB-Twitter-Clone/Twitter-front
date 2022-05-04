@@ -10,6 +10,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 
 const setUnit = (n) => {
+  if (typeof n === "undefined") return null;
   if (n < 10000) return String(parseInt(n / 1000)) + "," + String(n % 1000);
 
   return String(n / 10000.0) + "만";

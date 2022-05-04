@@ -1,0 +1,14 @@
+.sidebarOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: -10px;
+}
+.sidebarOption .sidebarOption__icon {
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.sidebarOption .sidebarOption__text {
+  font-size: 21px;
+  font-weight: normal;
+}

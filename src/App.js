@@ -1,16 +1,16 @@
 import React from "react";
 import Feed from "./components/common/Feed";
-
+import LeftSidebar from "./components/common/LeftSidebar";
+import RightSidebar from "./components/common/RightSidebar";
 import "./App.css";
 
 function App() {
   return (
-    // BEM
     <div className="app">
-      <div style={{ flex: 0.15, backgroundColor: "orange" }}>SideBar</div>
+      <LeftSidebar className="left__sidebar" />
+
       <Feed />
-      {/*Profile*/}
-      <div style={{ flex: 0.25, backgroundColor: "red" }}>Widget</div>
+      <RightSidebar />
     </div>
   );
 }
