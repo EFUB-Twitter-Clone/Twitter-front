@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TweetBox from "./TweetBox";
+
 import Post from "./Post";
 import "./Feed.css";
 
@@ -37,9 +37,7 @@ function Feed() {
   ]);
 
   useEffect(() => {
-    /*db.collection("posts").onSnapshot((snapshot) =>
-      setPosts(snapshot.docs.map((doc) => doc.data()))
-    );*/
+    // post 정보 받아오기
   }, []);
 
   return (
@@ -47,8 +45,6 @@ function Feed() {
       <div className="feed__header">
         <h2 className="feed__header__font">홈</h2>
       </div>
-
-      <TweetBox />
 
       <FlipMove>
         {posts.map((post) => (

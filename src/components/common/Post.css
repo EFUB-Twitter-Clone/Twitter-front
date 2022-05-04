@@ -2,7 +2,7 @@ article {
   padding-top: 12px;
   padding-right: 16px;
   padding-left: 16px;
-  border: 1px solid lightgray;
+  max-width: 600px;
 }
 
 .post {
@@ -13,7 +13,6 @@ article {
 .post__header {
   display: flex;
   justify-content: space-between;
-  max-width: 550px;
 }
 .post__body {
   flex: 0.7;
