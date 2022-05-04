@@ -4,7 +4,13 @@
   padding-right: 20px;
   position: fixed;
   overflow: auto;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
+.left__sidebar::-webkit-scrollbar {
+  display: none; /* 스크롤 바 숨기기*/
+}
+
 .sidebar__btn__tweet {
   background-color: var(--twitter-color) !important;
   border: none !important;

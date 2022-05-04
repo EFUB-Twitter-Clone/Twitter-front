@@ -3,8 +3,8 @@ body {
   --twitter-background: #e6ecf0;
 }
 .app {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 120px;
+  margin-right: 120px;
   display: flex;
   justify-content: space-between;
 }
