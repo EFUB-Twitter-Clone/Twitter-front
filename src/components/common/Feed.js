@@ -4,6 +4,7 @@ import Post from "./Post";
 import "./Feed.css";
 
 import FlipMove from "react-flip-move";
+import TweetContainer from "./TweetContainer";
 
 function Feed() {
   const [posts, setPosts] = useState([
@@ -45,7 +46,7 @@ function Feed() {
       <div className="feed__header">
         <h2 className="feed__header__font">홈</h2>
       </div>
-
+      <TweetContainer />
       <FlipMove>
         {posts.map((post) => (
           <Post

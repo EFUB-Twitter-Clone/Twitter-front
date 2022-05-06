@@ -7,6 +7,7 @@
   overflow: auto;
   scrollbar-width: none;
   overflow-y: scroll;
+  padding-right: 15px;
 }
 .left__sidebar::-webkit-scrollbar {
   display: none; /* 스크롤 바 숨기기*/
