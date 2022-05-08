@@ -3,6 +3,8 @@ import "./Profile.css";
 import ProfileTabs from "./ProfileTabs";
 import ProfileEditModal from "./ProfileEditModal";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import IconButton from "@mui/material/IconButton";
+
 function Profile() {
   const user_name = "김이펍";
   const user_id = "@efub2022";
@@ -25,8 +27,12 @@ function Profile() {
         handleClose={handleClose}
       />
       <div className="header">
-        <ArrowBackIcon sx={{ fontSize: 25 }} />
-
+        <IconButton aria-label="back">
+          <ArrowBackIcon
+            sx={{ fontSize: 25 }}
+            onClick={() => console.log("home으로 이동")}
+          />
+        </IconButton>
         <h2 className="header__font">{user_name}</h2>
       </div>
 

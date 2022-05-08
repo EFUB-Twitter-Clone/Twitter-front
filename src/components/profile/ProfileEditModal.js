@@ -38,37 +38,35 @@ function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
 
           <div className="background" />
 
-          <div className="input__box">
-            <div style={{ marginBottom: "10%" }}>
-              <div className="profile__picture__containter">
-                <img
-                  className="profile__picture"
-                  alt="프로필 사진을 엽니다"
-                  draggable
-                  src="https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png"
-                />
-              </div>
+          <div style={{ marginBottom: "10%", marginLeft: "12px" }}>
+            <div className="profile__picture__containter">
+              <img
+                className="profile__picture"
+                alt="프로필 사진을 엽니다"
+                draggable
+                src="https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png"
+              />
             </div>
-            <div className="container">
-              <div className="input__container">
-                <div className="input__label">이름</div>
-                <input
-                  autocapitalize="sentences"
-                  autocomplete="off"
-                  autocorrect="on"
-                  maxlength="50"
-                  name="displayName"
-                  spellcheck="true"
-                  type="text"
-                  dir="auto"
-                />
-              </div>
+          </div>
+          <div className="container">
+            <div className="input__container">
+              <div className="input__label">이름</div>
+              <input
+                autocapitalize="sentences"
+                autocomplete="off"
+                autocorrect="on"
+                maxlength="50"
+                name="displayName"
+                spellcheck="true"
+                type="text"
+                dir="auto"
+              />
             </div>
-            <div className="container">
-              <div className="input__container">
-                <div className="input__label">자기소개</div>
-                <input type="text" />
-              </div>
+          </div>
+          <div className="container">
+            <div className="input__container">
+              <div className="input__label">자기소개</div>
+              <input type="text" />
             </div>
           </div>
         </Box>
