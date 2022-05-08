@@ -1,12 +1,22 @@
 import React from "react";
 import "./Profile.css";
-import Avatar from "@mui/material/Avatar";
+import ProfileTabs from "./ProfileTabs";
+import FollowList from "../common/FollowList";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function Profile() {
   const user_name = "김이펍";
   const user_id = "@efub2022";
+  const [value, setValue] = React.useState(0);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div className="profile">
+      <div>
+        <ArrowBackIcon fontSize="small" color="action" />
+        <h2 className="profile__guide">홈</h2>
+      </div>
       <div className="background" />
       <div className="profile__box">
         <div className="gap">
@@ -53,6 +63,8 @@ function Profile() {
           </span>
         </div>
       </div>
+      <ProfileTabs />
+      <FollowList />
     </div>
   );
 }
