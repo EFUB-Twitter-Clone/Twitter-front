@@ -1,5 +1,4 @@
 .profile {
-  max-width: 600px;
   align-items: stretch;
   display: flex;
   flex-basis: auto;
@@ -9,10 +8,32 @@
   z-index: 0;
   border: 0 solid black;
   width: 100%;
+  max-width: 650px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+  border: 1px solid var(--twitter-background);
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+.header__font {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.header > h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
 }
 
 .profile__box {
-  max-width: 600px;
   box-sizing: border-box;
   margin-bottom: 16px;
   padding-top: 12px;
@@ -23,7 +44,7 @@
 }
 .background {
   background-color: rgb(207, 217, 222);
-  height: 33.3333%;
+  height: 300px;
   width: 100%;
   z-index: 0;
   position: relative;

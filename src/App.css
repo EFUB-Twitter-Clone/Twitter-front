@@ -13,3 +13,24 @@ body {
 .left__sidebar {
   height: 100%;
 }
+.header {
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+  border: 1px solid var(--twitter-background);
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+.header__font {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.header > h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+}

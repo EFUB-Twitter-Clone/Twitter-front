@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
 import ProfileTabs from "./ProfileTabs";
-import FollowList from "../common/FollowList";
+
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function Profile() {
   const user_name = "김이펍";
@@ -13,10 +13,12 @@ function Profile() {
   };
   return (
     <div className="profile">
-      <div>
-        <ArrowBackIcon fontSize="small" color="action" />
-        <h2 className="profile__guide">홈</h2>
+      <div className="header">
+        <ArrowBackIcon sx={{ fontSize: 25 }} />
+
+        <h2 className="header__font">{user_name}</h2>
       </div>
+
       <div className="background" />
       <div className="profile__box">
         <div className="gap">
@@ -64,7 +66,6 @@ function Profile() {
         </div>
       </div>
       <ProfileTabs />
-      <FollowList />
     </div>
   );
 }

@@ -9,8 +9,9 @@ function App() {
   return (
     <div className="app">
       <LeftSidebar className="left__sidebar" />
-
       <Profile />
+      {/*<Feed /> */}
+
       <RightSidebar />
     </div>
   );

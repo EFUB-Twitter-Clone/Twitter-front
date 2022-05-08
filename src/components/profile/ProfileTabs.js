@@ -4,8 +4,11 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Feed from "../common/Feed";
+import dummy from "../../data/feed.json";
 
+import Post from "../common/Post";
+
+import FlipMove from "react-flip-move";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -55,14 +58,33 @@ export default function ProfileTabs() {
           aria-label="basic tabs example"
           variant="fullWidth"
         >
-          <Tab label="트윗" {...a11yProps(0)} />
+          <Tab
+            label={<span style={{ fontWeight: "bold" }}>트윗</span>}
+            {...a11yProps(0)}
+          />
           <Tab label="트윗 및 답글" {...a11yProps(1)} />
           <Tab label="미디어" {...a11yProps(2)} />
           <Tab label="마음에 들어요" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        트윗
+        <FlipMove>
+          {dummy.map((post) => (
+            <Post
+              key={post.text}
+              displayName={post.displayName}
+              username={post.username}
+              verified={post.verified}
+              text={post.text}
+              avatar={post.avatar}
+              image={post.image}
+              tag={post.tag}
+              like={post.like}
+              comment={post.comment}
+              retweet={post.retweet}
+            />
+          ))}
+        </FlipMove>
       </TabPanel>
       <TabPanel value={value} index={1}>
         트윗 및 답글
