@@ -51,7 +51,7 @@ function RightSidebar() {
         <h2>내가 좋아할 만한 콘텐츠</h2>
         {people.map((one) => {
           return (
-            <div className="profile" key={one.key}>
+            <div className="profile__container" key={one.key}>
               <div className="profile__right">
                 <div className="profile__img">
                   <img className="profile__img__img" src={one.profile} />

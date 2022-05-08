@@ -2,12 +2,12 @@ import React from "react";
 import "./TweetContainer.css";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import EventNoteIcon from "@material-ui/icons/EventNote";
-import TagFacesIcon from "@material-ui/icons/TagFaces";
-import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
-import ImageOutlinedIcon from "@material-ui/icons/ImageOutlined";
-import GifOutlinedIcon from "@material-ui/icons/GifOutlined";
-import AssessmentOutlinedIcon from "@material-ui/icons/AssessmentOutlined";
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import TagFacesIcon from "@mui/icons-material/TagFaces";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
+import GifOutlinedIcon from "@mui/icons-material/GifOutlined";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 
 function TweetContainer() {
   return (
