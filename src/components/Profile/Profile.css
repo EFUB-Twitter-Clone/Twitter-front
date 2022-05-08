@@ -148,3 +148,10 @@
 .profile__follow h4 {
   display: inline;
 }
+
+#no_media {
+  height: 70%;
+
+  width: 70%;
+  z-index: -1;
+}
