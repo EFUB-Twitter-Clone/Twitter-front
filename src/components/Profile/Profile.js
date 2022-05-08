@@ -1,18 +1,29 @@
 import React from "react";
 import "./Profile.css";
 import ProfileTabs from "./ProfileTabs";
-
+import ProfileEditModal from "./ProfileEditModal";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function Profile() {
   const user_name = "김이펍";
   const user_id = "@efub2022";
   const [value, setValue] = React.useState(0);
 
+  // 모달 관련
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
     <div className="profile">
+      <ProfileEditModal
+        open={open}
+        setOpen={setOpen}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
       <div className="header">
         <ArrowBackIcon sx={{ fontSize: 25 }} />
 
@@ -30,7 +41,9 @@ function Profile() {
               src="https://abs.twimg.com/sticky/default_profile_images/default_profile_200x200.png"
             />
           </div>
-          <button className="profile__button">프로필 수정</button>
+          <button className="profile__button" onClick={handleOpen}>
+            프로필 수정
+          </button>
         </div>
         <div className="profile__header">
           <div className="profile__username"> {user_name}</div>
