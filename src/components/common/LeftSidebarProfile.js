@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./LeftSidebarProfile.css";
-
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 function LeftSidebarProfile() {
   const myId = {
     name: "이영지",
@@ -10,8 +11,13 @@ function LeftSidebarProfile() {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNRn2EiE6Ihsy9mPufplNhRjqGmybCslL7Hm0emKtdzA&s",
   };
 
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/profile`);
+  };
+
   return (
-    <div className="profile__left">
+    <div className="profile__left" onClick={handleClick}>
       <div className="profile__align">
         <div className="profile__right">
           <div className="profile__img">

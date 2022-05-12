@@ -12,19 +12,32 @@ import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import LeftSidebarProfile from "./LeftSidebarProfile";
+import { useNavigate, Link } from "react-router-dom";
 
 function LeftSidebar() {
+  const navigate = useNavigate();
+  const handleClickProfile = () => {
+    navigate(`/profile`);
+  };
+  const handleClickHome = () => {
+    navigate(`/`);
+  };
   return (
     <div className="left__sidebar">
       <div className="left__sidebar__position">
         <TwitterIcon className="sidebar__twitterIcon" />
-        <LeftSidebarTopic Icon={HomeIcon} text="홈" active={true} />
+        <div onClick={handleClickHome} style={{ cursor: "pointer" }}>
+          <LeftSidebarTopic Icon={HomeIcon} text="홈" active={true} />
+        </div>
         <LeftSidebarTopic Icon={SearchIcon} text="탐색하기" />
         <LeftSidebarTopic Icon={NotificationsNoneIcon} text="알림" />
         <LeftSidebarTopic Icon={MailOutlineIcon} text="쪽지" />
         <LeftSidebarTopic Icon={BookmarkBorderIcon} text="북마크" />
         <LeftSidebarTopic Icon={ListAltIcon} text="리스트" />
-        <LeftSidebarTopic Icon={PermIdentityIcon} text="프로필" />
+        <div onClick={handleClickProfile} style={{ cursor: "pointer" }}>
+          <LeftSidebarTopic Icon={PermIdentityIcon} text="프로필" />
+        </div>
+
         <LeftSidebarTopic Icon={MoreHorizIcon} text="더보기" />
 
         <button className="sidebar__btn__tweet">트윗하기</button>
