@@ -1,24 +1,157 @@
 .profile {
-  max-width: 600px;
   align-items: stretch;
   display: flex;
   flex-basis: auto;
   flex-direction: column;
   box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+  border: 0 solid black;
+  width: 100%;
+  max-width: 650px;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+  border: 1px solid var(--twitter-background);
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+.header__font {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.header > h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: black;
+}
+
+.profile__box {
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  width: 100%;
+}
 .background {
   background-color: rgb(207, 217, 222);
-  padding-bottom: 33.3333%;
+  height: 300px;
+  width: 100%;
   z-index: 0;
+  position: relative;
+
+  margin: 0;
+  padding: 0;
+}
+
+.profile__button {
+  border-color: rgb(207, 217, 222);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+
+  font-weight: 700;
+  min-height: 36px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: 80%;
+}
+.profile__button :hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
+.profile__header {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+}
+
+.profile__header .profile__username {
+  font-weight: 800;
+  color: black;
+  font-size: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.05em;
+}
+.profile__header .profile__userid {
+  font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(83, 100, 113);
+  font-weight: 400;
+}
+.gap {
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 8%;
+}
+.profile__picture__containter {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: -18%;
 }
 .profile__picture {
-  inset: 0px;
-  height: 100%;
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
+  width: 150px;
+  height: 150px;
+  border-radius: 70%;
+  border: 4px solid white;
   overflow: hidden;
-  flex-basis: auto;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+.profile__text {
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 12px;
+  font-family: Malgun Gothic, TwitterChirp, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(15, 20, 25);
+}
+
+.profile__date {
+  color: rgb(83, 100, 113);
+  line-height: 12px;
+  font-weight: 400;
+  font-size: 15px;
+  font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  margin-bottom: 12px;
+}
+
+#calendar_svg {
+  height: 1.25em;
+  vertical-align: text-bottom;
+  margin-right: 4px;
+  color: rgb(83, 100, 113);
+  display: inline-block;
+}
+
+.profile {
+  color: rgb(83, 100, 113);
+}
+.profile__follow h4 {
+  display: inline;
+}
+
+#no_media {
+  height: 70%;
+
+  width: 70%;
+  z-index: -1;
 }

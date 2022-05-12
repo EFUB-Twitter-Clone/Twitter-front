@@ -29,7 +29,7 @@
   font-weight: 800;
 }
 
-.profile {
+.profile__container {
   display: flex;
   align-items: flex-end;
   align-items: center;
@@ -37,7 +37,7 @@
   justify-content: space-between;
 }
 
-.right__container .profile .profile__img {
+.right__container .profile__container .profile__img {
   width: 60px;
   height: 60px;
   border-radius: 70%;
@@ -46,7 +46,7 @@
   margin-top: 10px;
 }
 
-.right__container .profile .profile__img__img {
+.right__container .profile__container .profile__img__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
