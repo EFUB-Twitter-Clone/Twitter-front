@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import ProfileTabs from "./ProfileTabs";
 import ProfileEditModal from "./ProfileEditModal";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import IconButton from "@mui/material/IconButton";
 
+import Axios from "axios";
+
 function Profile() {
-  const user_name = "김이펍";
-  const user_id = "@efub2022";
-  const [value, setValue] = React.useState(0);
+  const [myData, setMyData] = useState();
+  const fetchMyData = () => {
+    Axios.get(`/users/${userNumber}`, {
+      params: {
+        userNumber: userNumber,
+      },
+    })
+      .then(function (response) {
+        // response
+        console.log("나의 데이터", response);
+        setMyData(response.data);
+      })
+      .catch(function (error) {
+        // 오류발생시 실행
+        console.log(error);
+      })
+      .then(function () {
+        // 항상 실행
+      });
+  };
+
+  useEffect(() => {
+    //fetchMyData();
+  }, []);
+
+  //const user_name = myData.name;
+  const user_id = myData?.userId;
+  const user_name = myData?.name;
+  const userNumber = 4;
+  const self_introduction = myData?.readme;
+  const [value, setValue] = useState(0);
 
   // 모달 관련
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -53,9 +83,9 @@ function Profile() {
         </div>
         <div className="profile__header">
           <div className="profile__username"> {user_name}</div>
-          <div className="profile__userid"> {user_id}</div>
+          <div className="profile__userid"> @{user_id}</div>
         </div>
-        <div className="profile__text">안녕 나는 퍼비</div>
+        <div className="profile__text">{self_introduction}</div>
         <div className="profile__date">
           <svg viewBox="0 0 24 24" aria-hidden="true" id="calendar_svg">
             <g>
@@ -84,7 +114,7 @@ function Profile() {
           </span>
         </div>
       </div>
-      <ProfileTabs />
+      <ProfileTabs myData={myData} />
     </div>
   );
 }

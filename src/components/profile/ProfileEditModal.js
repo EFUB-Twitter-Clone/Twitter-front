@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -6,6 +7,8 @@ import Modal from "@mui/material/Modal";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import "./ProfileEditModal.css";
+import { API_URL } from "../../constants/config";
+import Axios from "axios";
 
 const style = {
   position: "absolute",
@@ -19,6 +22,31 @@ const style = {
 };
 
 function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
+  const userNumber = 4;
+  const editMyData = () => {
+    Axios.get(`${API_URL}/users/${userNumber}`, {
+      params: {
+        name: "4번유저",
+        readme: "안녕하세요",
+        userId: "efub_4",
+      },
+    })
+      .then(function (response) {
+        // response
+        console.log(response);
+      })
+      .catch(function (error) {
+        // 오류발생시 실행
+        console.log(error);
+      })
+      .then(function () {
+        // 항상 실행
+      });
+  };
+
+  useEffect(() => {
+    // fetchMyData ();
+  }, []);
   return (
     <div>
       <Modal

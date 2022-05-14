@@ -1,10 +1,12 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import dummy from "../../data/feed.json";
+import axios from "axios";
 
 import Post from "../common/Post";
 
@@ -47,22 +49,54 @@ function a11yProps(index) {
   };
 }
 
-export default function ProfileTabs() {
+export default function ProfileTabs(props) {
   const [value, setValue] = React.useState(0);
 
+  const { myData } = props;
+  const userNumber = myData.userNumber;
+  const myId = myData.userId;
+  const myName = myData.name;
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const [myPosts, setMyPosts] = useState([]); // 내 게시글 정보 저장
+
+  const fetchMyPosts = () => {
+    axios
+      .get(`/posts/${userNumber}`)
+      .then(function (response) {
+        // response'
+
+        if (response.status === 200) {
+          console.log("나의 게시글 데이터 받아오기 성공", response);
+          setMyPosts(response.data);
+        } else {
+          console.log("나의 게시글 데이터 받아오기 실패");
+        }
+      })
+      .catch(function (error) {
+        // 오류발생시 실행
+        console.log(error);
+      })
+      .then(function () {
+        // 항상 실행
+      });
+  };
+
+  useEffect(() => {
+    fetchMyPosts();
+  }, []);
+
   const my_feed = (
     <FlipMove>
-      {dummy.map((post) => (
+      {myPosts.map((post) => (
         <Post
-          key={post.text}
-          displayName={post.displayName}
-          username={post.username}
+          key={post.contents}
+          displayName={myName}
+          username={myId}
           verified={post.verified}
-          text={post.text}
+          text={post.contents}
           avatar={post.avatar}
           image={post.image}
           tag={post.tag}
