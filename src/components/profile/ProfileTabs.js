@@ -53,7 +53,7 @@ export default function ProfileTabs(props) {
   const [value, setValue] = React.useState(0);
 
   const { myData } = props;
-  const userNumber = myData.userNumber;
+  const userNumber = 4;
   const myId = myData.userId;
   const myName = myData.name;
   const handleChange = (event, newValue) => {
@@ -85,7 +85,7 @@ export default function ProfileTabs(props) {
   };
 
   useEffect(() => {
-    fetchMyPosts();
+    //fetchMyPosts();
   }, []);
 
   const my_feed = (

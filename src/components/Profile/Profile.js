@@ -9,6 +9,8 @@ import Axios from "axios";
 
 function Profile() {
   const [myData, setMyData] = useState();
+  const userNumber = 4; // 사용자 임의 설정
+
   const fetchMyData = () => {
     Axios.get(`/users/${userNumber}`, {
       params: {
@@ -30,13 +32,11 @@ function Profile() {
   };
 
   useEffect(() => {
-    //fetchMyData();
+    fetchMyData();
   }, []);
 
-  //const user_name = myData.name;
   const user_id = myData?.userId;
   const user_name = myData?.name;
-  const userNumber = 4;
   const self_introduction = myData?.readme;
   const [value, setValue] = useState(0);
 
@@ -55,6 +55,11 @@ function Profile() {
         setOpen={setOpen}
         handleOpen={handleOpen}
         handleClose={handleClose}
+        userNumber={userNumber}
+        userName={user_name}
+        userText={self_introduction}
+        userId={user_id}
+        fetchMyData={fetchMyData}
       />
       <div className="header">
         <IconButton aria-label="back">

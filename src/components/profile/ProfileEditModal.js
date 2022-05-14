@@ -21,19 +21,31 @@ const style = {
   boxShadow: 24,
 };
 
-function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
-  const userNumber = 4;
+function ProfileEditModal({
+  handleOpen,
+  handleClose,
+  open,
+  setOpen,
+  userNumber,
+  userName,
+  userText,
+  userId,
+  fetchMyData,
+}) {
+  const [name, setName] = useState(userName);
+  const [text, setText] = useState(userText);
+
   const editMyData = () => {
-    Axios.get(`${API_URL}/users/${userNumber}`, {
-      params: {
-        name: "4번유저",
-        readme: "안녕하세요",
-        userId: "efub_4",
-      },
+    Axios.post(`/users/${userNumber}`, {
+      name: name,
+      readme: text,
+      userId: userId,
     })
       .then(function (response) {
         // response
         console.log(response);
+        alert("저장이 완료되었습니다.");
+        fetchMyData();
       })
       .catch(function (error) {
         // 오류발생시 실행
@@ -44,9 +56,6 @@ function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
       });
   };
 
-  useEffect(() => {
-    // fetchMyData ();
-  }, []);
   return (
     <div>
       <Modal
@@ -61,7 +70,10 @@ function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
               <ClearIcon sx={{ fontSize: 25 }} onClick={handleClose} />
             </IconButton>
             <h2 className="header__font">프로필 수정</h2>
-            <button id="save__button">저장</button>
+            <button id="save__button" onClick={editMyData}>
+              {" "}
+              저장
+            </button>
           </div>
 
           <div className="background" />
@@ -88,13 +100,19 @@ function ProfileEditModal({ handleOpen, handleClose, open, setOpen }) {
                 spellcheck="true"
                 type="text"
                 dir="auto"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
           </div>
           <div className="container">
             <div className="input__container">
               <div className="input__label">자기소개</div>
-              <input type="text" />
+              <input
+                type="text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
             </div>
           </div>
         </Box>
