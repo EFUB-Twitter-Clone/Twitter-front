@@ -12,3 +12,9 @@
   font-size: 21px;
   font-weight: normal;
 }
+
+.sidebarOption:hover {
+  background-color: var(--twitter-background);
+  border-radius: 30px;
+  transition: color 100ms ease-out;
+}

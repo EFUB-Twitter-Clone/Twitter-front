@@ -26,10 +26,16 @@ function LeftSidebar() {
     <div className="left__sidebar">
       <div className="left__sidebar__position">
         <TwitterIcon className="sidebar__twitterIcon" />
-        <div onClick={handleClickHome} style={{ cursor: "pointer" }}>
+        <div
+          onClick={handleClickHome}
+          style={{ cursor: "pointer" }}
+          className="topicHover"
+        >
           <LeftSidebarTopic Icon={HomeIcon} text="홈" active={true} />
         </div>
-        <LeftSidebarTopic Icon={SearchIcon} text="탐색하기" />
+        <div>
+          <LeftSidebarTopic Icon={SearchIcon} text="탐색하기" />
+        </div>
         <LeftSidebarTopic Icon={NotificationsNoneIcon} text="알림" />
         <LeftSidebarTopic Icon={MailOutlineIcon} text="쪽지" />
         <LeftSidebarTopic Icon={BookmarkBorderIcon} text="북마크" />

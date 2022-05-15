@@ -18,8 +18,8 @@ function LeftSidebarProfile() {
 
   return (
     <div className="profile__left" onClick={handleClick}>
-      <div className="profile__align">
-        <div className="profile__right">
+      <div className="profile__right">
+        <div className="profile__rightside">
           <div className="profile__img">
             <img className="profile__img__img" src={myId.profile} />
           </div>
@@ -29,9 +29,7 @@ function LeftSidebarProfile() {
             <div className="profile__id">{myId.id}</div>
           </div>
         </div>
-        <div>
-          <MoreHorizIcon />
-        </div>
+        <MoreHorizIcon />
       </div>
     </div>
   );

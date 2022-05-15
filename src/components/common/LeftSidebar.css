@@ -2,7 +2,6 @@
   border-right: 1px solid var(--twitter-background);
   min-width: 17%;
   top: 0;
-
   position: sticky;
   overflow: auto;
   scrollbar-width: none;
@@ -24,7 +23,8 @@
   margin-top: 20px !important;
   display: block;
   width: 100%;
-  font-size: 100;
+  letter-spacing: 10px;
+  font-size: 16px;
 }
 
 .sidebar__twitterIcon {
@@ -32,7 +32,7 @@
   padding-top: 10px;
 }
 .sidebar__profile {
-  margin-top: 40%;
+  margin-top: 20%;
   bottom: 0;
   margin-bottom: 5%;
 }
