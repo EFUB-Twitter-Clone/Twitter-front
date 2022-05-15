@@ -10,12 +10,6 @@
   cursor: pointer;
 }
 
-.profile__left .profile__align {
-  display: flex;
-  padding-bottom: 20px;
-  align-items: center;
-}
-
 .profile__left .profile__img {
   width: 60px;
   height: 60px;
@@ -38,4 +32,9 @@
 .profile__left .profile__right {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.profile__rightside {
+  align-items: center;
+  display: flex;
 }

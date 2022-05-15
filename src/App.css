@@ -34,3 +34,6 @@ body {
   font-weight: 800;
   color: black;
 }
+LeftSidebarTopic:hover {
+  background-color: #50b7f5;
+}

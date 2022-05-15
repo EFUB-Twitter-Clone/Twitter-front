@@ -8,6 +8,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   border-right: 1px solid lightgray;
+  border-left: 1px solid lightgray;
   overflow-y: scroll;
   width: 100%;
   max-width: 650px;

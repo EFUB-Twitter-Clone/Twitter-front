@@ -5,9 +5,22 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import PublishIcon from "@mui/icons-material/Publish";
-import BarChartIcon from "@mui/icons-material/BarChart";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
+import axios from "axios";
+
+function deleteTweet(post_number) {
+  console.log(post_number);
+  axios
+    .delete(`/posts/${post_number}`)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log("데이터 가져오기 실패");
+      console.log(error);
+    });
+}
 
 const setUnit = (n) => {
   if (typeof n === "undefined") return null;
@@ -15,11 +28,11 @@ const setUnit = (n) => {
 
   return String(n / 10000.0) + "만";
 };
-
 const Post = forwardRef(
   (
     {
       displayName,
+      postNum,
       username,
       verified,
       text,
@@ -72,7 +85,11 @@ const Post = forwardRef(
                 <span>{setUnit(like)}</span>
               </div>
               <div>
-                <PublishIcon fontSize="small" color="action" />
+                <DeleteOutlineIcon
+                  fontSize="small"
+                  color="action"
+                  onClick={() => deleteTweet(postNum)}
+                />
               </div>
               {/* 내가 올린 글일때만 보여주기
               <div>
