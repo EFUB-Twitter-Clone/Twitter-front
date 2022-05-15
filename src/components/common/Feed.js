@@ -7,6 +7,7 @@ import FlipMove from "react-flip-move";
 import TweetContainer from "./TweetContainer";
 import dummy from "../../data/feed.json";
 import axios from "axios";
+import { SettingsInputAntenna } from "@material-ui/icons";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -16,6 +17,7 @@ function Feed() {
       .then(function (response) {
         if (response.status === 200) {
           console.log("전체 게시글 받아오기 성공", response);
+
           setPosts(response.data);
         } else {
           console.log("전체 게시글 데이터 받아오기 실패");
@@ -28,10 +30,16 @@ function Feed() {
         console.log(posts);
       });
   };
+
+  // post 정보 받아오기
   useEffect(() => {
-    // post 정보 받아오기
     getPostApi();
   }, []);
+
+  // post 삭제되거나 추가되었을 때
+  useEffect(() => {
+    getPostApi();
+  }, [posts]);
 
   return (
     <div className="feed">
@@ -40,7 +48,7 @@ function Feed() {
       </div>
       <TweetContainer />
       <FlipMove>
-        {dummy.map((post) => (
+        {posts.map((post) => (
           <Post
             key={post.postNumber}
             postNum={post.postNumber}
