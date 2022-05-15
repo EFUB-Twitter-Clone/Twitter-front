@@ -15,7 +15,6 @@ const setUnit = (n) => {
 
   return String(n / 10000.0) + "만";
 };
-
 const Post = forwardRef(
   (
     {
