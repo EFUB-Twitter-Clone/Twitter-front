@@ -10,27 +10,26 @@ import axios from "axios";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
-
+  const getPostApi = () => {
+    axios
+      .get(`/posts`)
+      .then(function (response) {
+        if (response.status === 200) {
+          console.log("전체 게시글 받아오기 성공", response);
+          setPosts(response.data);
+        } else {
+          console.log("전체 게시글 데이터 받아오기 실패");
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+        console.log(posts);
+      });
+  };
   useEffect(() => {
     // post 정보 받아오기
-    const getPostApi = () => {
-      axios
-        .get(`/posts`)
-        .then(function (response) {
-          if (response.status === 200) {
-            console.log("전체 게시글 받아오기 성공", response);
-            setPosts(response.data);
-          } else {
-            console.log("전체 게시글 데이터 받아오기 실패");
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .then(function () {
-          console.log(posts);
-        });
-    };
     getPostApi();
   }, []);
 
@@ -41,7 +40,7 @@ function Feed() {
       </div>
       <TweetContainer />
       <FlipMove>
-        {posts.map((post) => (
+        {dummy.map((post) => (
           <Post
             key={post.postNumber}
             postNum={post.postNumber}
